@@ -29,11 +29,11 @@ namespace WebApiDemo.CustomMiddlewares
                 var token = authHeader.Substring(6).Trim();
                 var credintialString = "";
                 try
-                { //bunu çeviremezsen
+                { 
                     credintialString = Encoding.UTF8.GetString((Convert.FromBase64String(token))); 
                 }
                 catch 
-                { //BadRequest ver
+                { 
                      context.Response.StatusCode = 500;
                 }
                 var credentials = credintialString.Split(':');
